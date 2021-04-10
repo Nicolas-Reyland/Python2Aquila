@@ -12,6 +12,7 @@
 #setting (permafrost) false
 #setting (flame mode) true
 #setting (implicit declaration in assignment) true
+#setting (redirect debug stout & stderr) false
 
 /** Python functions in Aquila **/
 function list range(start, stop, step)
