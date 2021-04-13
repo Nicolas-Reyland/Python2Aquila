@@ -66,7 +66,7 @@ def handle_for(for_loop : ast.For) -> str:
 			'// Generating an python for-loop equivalent\n' + \
 			f'$_py_for_loop_iterator = copy_list({iterator})\n' + \
 			f'$_py_for_loop_num_iterations = length($_py_for_loop_iterator)\n' + \
-			'for ($_py_for_loop_index = 0, $_for_loop_index < $_py_for_loop_num_iterations, $_py_for_loop_index ++)\n' + \
+			'for ($_py_for_loop_index = 0; $_for_loop_index < $_py_for_loop_num_iterations; $_py_for_loop_index ++)\n' + \
 				f'{iterator_var} = $_py_for_loop_iterator[$_py_for_loop_index]\n' + \
 				'// start of actual translated code in loop\n'
 
@@ -109,7 +109,7 @@ def _handle_range_for_loop(for_loop : ast.For) -> (bool, str):
 		step = expr_handler.handle_expression(args[2])
 
 	# build for_loop
-	return True, f'for ({iterator_var} = {start}, {iterator_var} < {stop}, {iterator_var} += {step})\n'
+	return True, f'for ({iterator_var} = {start}; {iterator_var} < {stop}; {iterator_var} += {step})\n'
 
 def handle_while(while_loop : ast.While) -> str:
 	while_loop_body = '\n'.join(map(handle_instruction, while_loop.body))

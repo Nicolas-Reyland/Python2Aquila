@@ -18,7 +18,7 @@ PY_SETTINGS = '''/** Python default settings **/
 PY_FUNCTIONS = '''/** Python functions in Aquila **/
 function list range(start, stop, step)
 	decl list l []
-	for (decl i $start, $i < $stop, $i += $step)
+	for (decl i $start; $i < $stop; $i += $step)
 		append_value($l, $i)
 	end-for
 	return($l)
@@ -26,7 +26,7 @@ end-function
 
 function list _py_slice_list(l, start, stop, step)
 	decl list spliced_list []
-	for ($i = $start, $i < $stop, $i += $step)
+	for ($i = $start; $i < $stop; $i += $step)
 		append_value($spliced_list, list_at($l, $i))
 	end-for
 	return($spliced_list)
