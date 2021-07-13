@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # Python2Aquila - CLI
 import argparse, \
 		constants, \
